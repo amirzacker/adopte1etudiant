@@ -186,10 +186,10 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
 });
 
-
+/* 
 app.use((req, res, next) => {
   next(new NotFoundError());
-});
+}); */
 
 app.use((error, req, res, next) => {
   const status = error.status || 500;
