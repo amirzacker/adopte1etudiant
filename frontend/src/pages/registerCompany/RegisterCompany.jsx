@@ -56,7 +56,7 @@ export default function RegisterCompany() {
     const handleClick = async (data) => {
    
     try {
-        await axios.get("/users/email/"+ data.email)
+        await axios.get("/api/users/email/"+ data.email)
         //Test if Email already exists in the database
         //console.log(uu);
         setUserExist('Email already exists in the database');
@@ -83,7 +83,7 @@ export default function RegisterCompany() {
                 console.log(data);
                 console.log(file);
                 try {
-                    await axios.post("/uploads",data);
+                    await axios.post("/api/uploads",data);
                 } catch (error) {
                     console.log(error);
                 }  
@@ -94,7 +94,7 @@ export default function RegisterCompany() {
         }
         if (!file || (file && file.size < 2 * 1024 * 1024 && (file.type === "image/png" || file.type === "image/jpg" || file.type === "image/jpeg"))) {
             try {
-                await axios.post("/users", user);
+                await axios.post("/api/users", user);
                 navigate("/login");
                 reset();
               } catch (err) {

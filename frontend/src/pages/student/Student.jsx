@@ -25,7 +25,7 @@ function Student () {
   
     useEffect(() => {
       const fetchUser = async () => {
-        const res = await axios.get(`/users/${userId}`);
+        const res = await axios.get(`/api/users/${userId}`);
         setStudent(res.data);
       };
       fetchUser();
@@ -36,7 +36,7 @@ function Student () {
 
     useEffect(() => {
         const fetchUser = async () => {
-          const res = await axios.get(`/users/domain/${domainId}`);
+          const res = await axios.get(`/api/users/domain/${domainId}`);
           setStudentsSameDomain(res.data);
         };
         fetchUser();
@@ -67,7 +67,7 @@ function Student () {
         try {
           if (user?.user?.isCompany) {
             const res = await axios.get(
-              `/conversations/find/${user?.user?._id}/${userId}`
+              `/api/conversations/find/${user?.user?._id}/${userId}`
             , { headers: {"x-access-token" : user?.token} } );
             console.log(res);
             if (res.data) {
@@ -97,7 +97,7 @@ function Student () {
                     senderId : user?.user?._id,
                     receiverId : userId
                 }
-              await axios.post("/conversations/", data, { headers: {"x-access-token" : user?.token} });
+              await axios.post("/api/conversations/", data, { headers: {"x-access-token" : user?.token} });
               const templateParams = {
                 to_email: student?.email,
                 from_email: user?.user?.email,
@@ -142,7 +142,7 @@ function Student () {
       
             try {
               if (user?.user?.isCompany) {
-              await axios.put("/users/" + userId +"/adopte", { id : user?.user?._id} , { headers: {"x-access-token" : user?.token} });
+              await axios.put("/api/users/" + userId +"/adopte", { id : user?.user?._id} , { headers: {"x-access-token" : user?.token} });
               //navigate("/messenger");
               const templateParams = {
                 to_email: student?.email,

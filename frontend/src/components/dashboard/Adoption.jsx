@@ -19,7 +19,7 @@ export default function Adoption({ currentUser }) {
   useEffect(() => {
     const getAdoptions = async () => {
       try {
-        const res = await axios.get("/users/adoptions" , { headers: {"x-access-token" : currentUser.token} });
+        const res = await axios.get("/api/users/adoptions" , { headers: {"x-access-token" : currentUser.token} });
         if (currentUser?.user?.isCompany) {
             setAdoption(res.data.adoptions);
             //setAdoption([...adoptions, res.data.adoptions]);

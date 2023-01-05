@@ -182,10 +182,15 @@ app.use("/api/searchTypes", searchTypeRouter);
 
 //app.use("/", express.static("public"));
 // Tout ce qui n'a pas été traité par le backend correspond à un fichier statique
+
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"))
 });
 
+
+/* app.use("*",(req, res, next) => {
+  next(res.sendFile(path.resolve(__dirname, "../frontend/build", "index.html")));
+});  */
 /* 
 app.use((req, res, next) => {
   next(new NotFoundError());

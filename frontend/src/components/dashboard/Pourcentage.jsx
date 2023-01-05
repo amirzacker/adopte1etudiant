@@ -6,7 +6,7 @@ export default function Pourcentage({ currentUser }) {
   const userId = currentUser?._id;  // replace with the actual user ID
 
   useEffect(() => {
-    axios.get(`/users/${userId}`)
+    axios.get(`/api/users/${userId}`)
       .then((response) => {
         const user = response.data;
         const fields = Object.keys(user);

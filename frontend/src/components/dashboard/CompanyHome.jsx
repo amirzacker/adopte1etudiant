@@ -27,7 +27,7 @@ export default function CompanyHome({ currentUser }) {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await axios.get("/users/" + currentUser?.user?._id);
+        const res = await axios.get("/api/users/" + currentUser?.user?._id);
         setUser(res.data);
       } catch (err) {
         console.log(err);
@@ -44,7 +44,7 @@ export default function CompanyHome({ currentUser }) {
   const handleDeleteCompte = async (e) => {
     try {
         // Submit the form
-        await axios.delete("/users/" + user?._id, { headers: {"x-access-token" : token} });
+        await axios.delete("/api/users/" + user?._id, { headers: {"x-access-token" : token} });
         // after delete remove  localStorage
         localStorage.removeItem('user');
         //and reload page to deconnecte

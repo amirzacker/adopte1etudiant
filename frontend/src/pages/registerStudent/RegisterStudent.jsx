@@ -63,12 +63,12 @@ export default function RegisterStudent() {
 
     useEffect(() => {
         // Axios version
-        axios.get("/domains").then((result) => setDomain(result.data));
+        axios.get("/api/domains").then((result) => setDomain(result.data));
       }, []);
 
     useEffect(() => {
         // Axios version
-        axios.get("/searchTypes").then((result) => setSearchType(result.data));
+        axios.get("/api/searchTypes").then((result) => setSearchType(result.data));
       }, []);
 
 
@@ -77,7 +77,7 @@ export default function RegisterStudent() {
     const handleClick = async (data) => {
    
         try {
-            await axios.get("/users/email/"+ data.email)
+            await axios.get("/api/users/email/"+ data.email)
             //Test if Email already exists in the database
             //console.log(data);
             setUserExist('Email already exists in the database');
@@ -107,7 +107,7 @@ export default function RegisterStudent() {
                   data.append("file", profilePicture);
                   user.profilePicture = fileName;
                   try {
-                      await axios.post("/uploads",data);
+                      await axios.post("/api/uploads",data);
                   } catch (error) {
                       console.log(error);
                   }
@@ -121,7 +121,7 @@ export default function RegisterStudent() {
                   data.append("file", cv);
                   user.cv = fileName;
                   try {
-                      await axios.post("/uploads",data);
+                      await axios.post("/api/uploads",data);
                   } catch (error) {
                       console.log(error);
                   }
@@ -135,7 +135,7 @@ export default function RegisterStudent() {
                   data.append("file", motivation);
                   user.motivationLetter = fileName;
                   try {
-                      await axios.post("/uploads",data);
+                      await axios.post("/api/uploads",data);
                   } catch (error) {
                       console.log(error);
                   }
@@ -144,7 +144,7 @@ export default function RegisterStudent() {
             }
             if ((!profilePicture || (profilePicture && profilePicture.size < 2 * 1024 * 1024)) && (!cv || (cv && cv.size < 2 * 1024 * 1024)) && (!motivation || (motivation && motivation.size < 2 * 1024 * 1024)) ) {
               try {
-                await axios.post("/users", user);
+                await axios.post("/api/users", user);
                 navigate("/login");
                 reset();
                 

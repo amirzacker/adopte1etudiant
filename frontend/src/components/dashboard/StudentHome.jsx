@@ -32,7 +32,7 @@ export default function StudentHome({ currentUser }) {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await axios.get("/users/" + currentUser?.user?._id);
+        const res = await axios.get("/api/users/" + currentUser?.user?._id);
         setUser(res.data);
       } catch (err) {
         console.log(err);
@@ -77,7 +77,7 @@ export default function StudentHome({ currentUser }) {
         id: user?._id,
         status: event.target.checked
       }
-      const res = await axios.put("/users/" + user?._id, data, { headers: {"x-access-token" : token} });
+      const res = await axios.put("/api/users/" + user?._id, data, { headers: {"x-access-token" : token} });
       console.log(res);
       setStatus( event.target.checked );
 
@@ -96,7 +96,7 @@ export default function StudentHome({ currentUser }) {
   const handleDeleteCompte = async (e) => {
     try {
         // Submit the form
-        await axios.delete("/users/" + user?._id, { headers: {"x-access-token" : token} });
+        await axios.delete("/api/users/" + user?._id, { headers: {"x-access-token" : token} });
         // after delete remove  localStorage
         localStorage.removeItem('user');
         //and reload page to deconnecte

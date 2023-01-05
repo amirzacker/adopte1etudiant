@@ -36,7 +36,7 @@ export default function EditPassword({ currentUser , token}) {
     };
   
     try {
-      const res = await axios.put("/users/" + currentUser?._id, user, {
+      const res = await axios.put("/api/users/" + currentUser?._id, user, {
         headers: { "x-access-token": token },
       });
       console.log(res);

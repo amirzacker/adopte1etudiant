@@ -9,7 +9,7 @@ export default function AdoptionUnit({ user, currentUser, deleteUser, handleClic
   const handleUnAdoption = async () => {
 
     try {
-      await axios.put("/users/" + user?._id +"/unadopte", { id : currentUser?.user?._id} , { headers: {"x-access-token" : currentUser?.token} });
+      await axios.put("/api/users/" + user?._id +"/unadopte", { id : currentUser?.user?._id} , { headers: {"x-access-token" : currentUser?.token} });
       //navigate("/messenger");
     } catch (err) {
       console.log(err);

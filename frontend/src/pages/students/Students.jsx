@@ -27,12 +27,12 @@ function Students() {
 
   useEffect(() => {
     // Axios version
-    axios.get("/users").then((result) => setUsers(result.data));
+    axios.get("/api/users").then((result) => setUsers(result.data));
   }, [users]);
 
   useEffect(() => {
     // Axios version
-    axios.get("/domains").then((result) => setDomain(result.data));
+    axios.get("/api/domains").then((result) => setDomain(result.data));
   }, [domain]);
 
 

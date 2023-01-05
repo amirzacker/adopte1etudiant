@@ -60,12 +60,12 @@ export default function EditProfilStudent({ currentUser , token }) {
 
   useEffect(() => {
     // Axios version
-    axios.get("/domains").then((result) => setDomain(result.data));
+    axios.get("/api/domains").then((result) => setDomain(result.data));
   }, []);
 
   useEffect(() => {
     // Axios version
-    axios.get("/searchTypes").then((result) => setSearchType(result.data));
+    axios.get("/api/searchTypes").then((result) => setSearchType(result.data));
   }, []);
 
   const handleClick = async (data) => {
@@ -90,7 +90,7 @@ export default function EditProfilStudent({ currentUser , token }) {
       data.append("file", profilePicture);
       user.profilePicture = fileName;
       try {
-        await axios.post("/uploads", data);
+        await axios.post("/api/uploads", data);
       } catch (error) {
         console.log(error);
       }
@@ -103,7 +103,7 @@ export default function EditProfilStudent({ currentUser , token }) {
     }
 if (!profilePicture || (profilePicture && profilePicture.size < 2 * 1024 * 1024)) {
   try {
-    const res = await axios.put("/users/" + currentUser?._id, user, {
+    const res = await axios.put("/api/users/" + currentUser?._id, user, {
       headers: { "x-access-token": token },
     });
     console.log(res);

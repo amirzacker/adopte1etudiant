@@ -27,7 +27,7 @@ export default function EditCvMotivation({ currentUser, token }) {
       data.append("file", cv);
       user.cv = fileName;
       try {
-        await axios.post("/uploads", data);
+        await axios.post("/api/uploads", data);
       } catch (error) {
         console.log(error);
       }
@@ -41,7 +41,7 @@ export default function EditCvMotivation({ currentUser, token }) {
       data.append("file", motivation);
       user.motivationLetter = fileName;
       try {
-        await axios.post("/uploads", data);
+        await axios.post("/api/uploads", data);
       } catch (error) {
         console.log(error);
       } 
@@ -52,7 +52,7 @@ export default function EditCvMotivation({ currentUser, token }) {
 
   if ((!cv || (cv && cv.size < 2 * 1024 * 1024)) && (!motivation || (motivation && motivation.size < 2 * 1024 * 1024)) ) {
     try {
-      const res = await axios.put("/users/" + currentUser?._id, user, {
+      const res = await axios.put("/api/users/" + currentUser?._id, user, {
         headers: { "x-access-token": token },
       });
       console.log(res);

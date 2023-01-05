@@ -50,7 +50,7 @@ export default function EditProfilCompany({ currentUser , token }) {
       data.append("file", profilePicture);
       user.profilePicture = fileName;
       try {
-        await axios.post("/uploads", data);
+        await axios.post("/api/uploads", data);
       } catch (error) {
         console.log(error);
       }
@@ -60,7 +60,7 @@ export default function EditProfilCompany({ currentUser , token }) {
     }
 
     try {
-      const res = await axios.put("/users/" + currentUser?._id, user, {
+      const res = await axios.put("/api/users/" + currentUser?._id, user, {
         headers: { "x-access-token": token },
       });
       console.log(res);

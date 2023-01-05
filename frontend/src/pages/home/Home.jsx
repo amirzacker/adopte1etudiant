@@ -11,11 +11,27 @@ function Home () {
   const [students, setStudents] = useState([]);
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users/`);
+      const res = await axios.get(`/api/users/`);
       setStudents(res.data);
     };
     fetchUser();
+
+    
   }, [students, ]);
+
+useEffect(() => {
+ 
+  axios.get('/api/domains')
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+}, [students]);
+
+console.log(students);
 
   return (
     <div >

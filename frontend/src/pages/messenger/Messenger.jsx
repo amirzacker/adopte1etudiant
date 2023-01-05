@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import {io} from "socket.io-client";
-const ENDPOINT = "ws://adopte1etudiant-api.onrender.com" || "ws://localhost:3001";
+const ENDPOINT = "ws://adopte1etudiant.onrender.com" || "ws://localhost:3001";
 
 export default function Messenger() {
   const [conversations, setConversations] = useState([]);
@@ -44,7 +44,7 @@ export default function Messenger() {
   useEffect(() => {
     const getConversations = async () => {
       try {
-        const res = await axios.get("/conversations/" + user?.user?._id, { headers: {"x-access-token" : user.token} });
+        const res = await axios.get("/api/conversations/" + user?.user?._id, { headers: {"x-access-token" : user.token} });
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -57,7 +57,7 @@ export default function Messenger() {
   useEffect(() => {
     const getMessages = async () => {
       try {
-        const res = await axios.get("/messages/" + currentChat?._id , { headers: {"x-access-token" : user.token} });
+        const res = await axios.get("/api/messages/" + currentChat?._id , { headers: {"x-access-token" : user.token} });
         setMessages(res.data);
       } catch (err) {
         console.log(err);
@@ -86,7 +86,7 @@ export default function Messenger() {
 
 
     try {
-      const res = await axios.post("/messages", message, { headers: {"x-access-token" : user.token} });
+      const res = await axios.post("/api/messages", message, { headers: {"x-access-token" : user.token} });
       setMessages([...messages, res.data]);
       setNewMessage("");
     } catch (err) {
