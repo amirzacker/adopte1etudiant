@@ -23,8 +23,7 @@ const config = require("./config");
 
 
 const app = express();
-// Node s'occupe de servir les fichiers statiques
-app.use(express.static(path.resolve(__dirname, "../frontend/build")));
+
 
 const server = http.createServer(app);
 //const io = new Server(server);
@@ -133,6 +132,9 @@ app.use(admin.options.rootPath, router);
 
 app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 
+// Node s'occupe de servir les fichiers statiques
+app.use(express.static(path.resolve(__dirname, "../frontend/build")));
+
 
 app.use(cors());
 app.use(express.json());
@@ -183,7 +185,7 @@ app.use("/api/searchTypes", searchTypeRouter);
 //app.use("/", express.static("public"));
 // Tout ce qui n'a pas été traité par le backend correspond à un fichier statique
 
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"))
 });
 

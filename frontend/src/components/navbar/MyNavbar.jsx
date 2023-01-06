@@ -1,17 +1,41 @@
 import './navbar.css'
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { Navbar, Nav, Image, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
+import { AuthContext } from '../../context/AuthContext';
 
-import { AuthContext } from '../../context/AuthContext'
-
-function Navbar () {
+function MyNavbar () {
 const { user } = useContext(AuthContext);
 
   return (
     <div>  
       <header className="sticky-top">
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        
+      <Navbar id='navbarmobile' bg="dark" expand="lg" sticky="top">
+      <div className="container">
+        <Navbar.Brand>
+          <Link to="/">
+            <Image src="/assets/logos/logodef.svg" alt="Adopte-logo" id="adopte-logo" />
+          </Link>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarSupportedContent" />
+        <Navbar.Collapse id="navbarSupportedContent">
+          <Nav className="ml-auto">
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/students">Students</Nav.Link>
+            <Nav.Link as={Link} to="/contact">Contactez Nous</Nav.Link>
+            <Nav.Link as={Link} to="/about-us">A propos</Nav.Link>
+            <div className="login-container1">
+              <Nav.Link as={Link} to="/login" className="nav-login">
+                {!user ? 'Connexion' : 'Dashboard'}
+              </Nav.Link>
+            </div>
+          </Nav>
+        </Navbar.Collapse>
+      </div>
+    </Navbar>
+    <nav id='navbarpc' className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <div className="container">
                 <h1>
                     <Link to="/"><img src="/assets/logos/logodef.svg" alt="Adopte-logo" id="adopte-logo"/></Link>
@@ -47,7 +71,6 @@ const { user } = useContext(AuthContext);
                 </div>
             </div>
         </nav>
-
     </header>
     <div className="container login-responsive">
         <div className="login-container">
@@ -60,4 +83,4 @@ const { user } = useContext(AuthContext);
   )
 }
 
-export default Navbar
+export default MyNavbar

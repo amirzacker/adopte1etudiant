@@ -225,7 +225,7 @@ export default function StudentHome({ currentUser }) {
 		</div>
    
 		<div className="partition-lm">
-			<h4>Ma lettre de motivation</h4>
+			<h4>Ma motivation</h4>
 			<h5>Mise à jour le {" "} {DateMo}</h5>
 			<h6>
       <IconButton onClick={() => setOpenCv(true)}>

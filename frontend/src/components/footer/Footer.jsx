@@ -18,62 +18,46 @@ function Footer () {
                     <h4>Adopteunetudiant</h4>
                     <ul>
                         <li>
-                            <Link to="#">Lorem, ipsum dolor.</Link>
+                            <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="#">Lorem, ipsum dolor.</Link>
+                            <Link to="/contact">Contactez nous</Link>
                         </li>
                         <li>
-                            <Link to="#">Lorem, ipsum.</Link>
+                            <Link to="/about-us">Qui sommes-nous</Link>
                         </li>
                         <li>
-                            <Link to="#">Lorem, ipsum.</Link>
-                        </li>
-                    </ul>
-                </div>
-                <div className="footer-col">
-                    <h4>Sitemap</h4>
-                    <ul>
-                        <li>
-                            <Link to="#">Lorem, ipsum dolor.</Link>
-                        </li>
-                        <li>
-                            <Link to="#">Lorem, ipsum dolor.</Link>
-                        </li>
-                        <li>
-                            <Link to="#">Lorem, ipsum.</Link>
-                        </li>
-                        <li>
-                            <Link to="#">Lorem, ipsum.</Link>
-                        </li>
-                    </ul>
-                </div>
-                <div className="footer-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li>
-                            <Link to="#">Lorem, ipsum dolor.</Link>
-                        </li>
-                        <li>
-                            <Link to="#">Lorem, ipsum dolor.</Link>
-                        </li>
-                        <li>
-                            <Link to="#">Lorem, ipsum.</Link>
-                        </li>
-                        <li>
-                            <Link to="#">Lorem, ipsum.</Link>
+                            <Link to="/students">Students</Link>
                         </li>
                     </ul>
                 </div>
                 <div className="footer-col">
                     <h4>Follow Us</h4>
                     <div className="social-links">
-                        <Link to="error404.html"><i className="fab fa-facebook-f"></i></Link>
-                        <Link to="error404.html"><i className="fab fa-twitter"></i></Link>
-                        <Link to="error404.html"><i className="fab fa-linkedin-in"></i></Link>
-                        <Link to="error404.html"><i className="fab fa-youtube"></i></Link>
+                        <Link to="error404"><i className="fab fa-facebook-f"></i></Link>
+                        <Link to="error404"><i className="fab fa-twitter"></i></Link>
+                        <Link to="error404"><i className="fab fa-linkedin-in"></i></Link>
+                        <Link to="error404"><i className="fab fa-youtube"></i></Link>
                     </div>
                 </div>
+                <div className="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>
+                            <Link to="#">info@adopte1etudiant.fr</Link>
+                        </li>
+                        <li>
+                            <Link to="#">166 rue abdcef 60000 AXY</Link>
+                        </li>
+                        <li>
+                            <Link to="#">070707070807</Link>
+                        </li>
+                        <li>
+                            <Link to="#">0986525524426</Link>
+                        </li>
+                    </ul>
+                </div>
+             
             </div>
         </div>
     </footer>

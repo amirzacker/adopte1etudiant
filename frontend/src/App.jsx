@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import Login from './pages/login/Login'
 import NotFound from './pages/notFound/NotFound'
 import Footer from './components/footer/Footer'
-import Navbar from './components/navbar/Navbar'
+import MyNavbar from './components/navbar/MyNavbar'
 import Home from './pages/home/Home'
 import Students from './pages/students/Students'
 import Student from './pages/student/Student'
@@ -20,7 +20,7 @@ function App () {
   const { user } = useContext(AuthContext);
   return (
     <div>
-      <Navbar/>
+      <MyNavbar/>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/students" element={<Students/>}/>

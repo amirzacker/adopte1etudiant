@@ -125,7 +125,8 @@ function Student () {
           }else{
             setColor(false); 
             setMessage("Attention vous etes etudiant! vous ne pouver pas contacter un autre, choisisez le profil entreprise si vous vous etes trompé ");
-            setSuccess(true)
+            setSuccess(true);
+            ! user ? navigate("/login") :  console.log("");
           }
 
           } catch (err) {
@@ -133,7 +134,6 @@ function Student () {
            
 
           }
-       
       };
 
 

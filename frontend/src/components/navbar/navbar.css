@@ -4,6 +4,9 @@
         padding-left: 0;
         list-style: none;
     }
+    #navbarmobile{
+        display: none;
+    }
     
     .nav-link {
         color: #262D2A!important;
@@ -159,5 +162,11 @@
     @media screen and (max-width: 991px) {
         .right-menu {
             display: block;
+        }
+        #navbarmobile{
+            display: block;
+        }
+        #navbarpc{
+            display: none;
         }
     }

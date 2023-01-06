@@ -199,4 +199,16 @@
     .a-btn {
         width: 80%;
     }
+    .pic-ctn {
+      height: 200px;
+      position: relative;
+      width: 100%;
+  }
+
+  .a-btn-text {
+    font-size: 1.6rem;
+    padding-top: 9px;
+
+}
+
 }

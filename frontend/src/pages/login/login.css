@@ -119,6 +119,8 @@ input[type="submit"] {
 
 @media screen and (max-width: 574px) {
     .login {
-        width: 105%;
+        width: auto;
+        padding: 12px;
+        margin: 0px 20px 0px 20px;
     }
 }
