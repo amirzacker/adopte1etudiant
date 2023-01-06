@@ -70,7 +70,6 @@ export default function EditProfilStudent({ currentUser , token }) {
 
   const handleClick = async (data) => {
 
-    console.log(data);
     const user = {
       id: currentUser?._id,
       firstname: firstname,
@@ -106,7 +105,6 @@ if (!profilePicture || (profilePicture && profilePicture.size < 2 * 1024 * 1024)
     const res = await axios.put("/api/users/" + currentUser?._id, user, {
       headers: { "x-access-token": token },
     });
-    console.log(res);
     const storedObject = JSON.parse(localStorage.getItem("user"));
     // Update the object
     storedObject.user = res.data;

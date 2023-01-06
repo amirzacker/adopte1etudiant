@@ -22,12 +22,8 @@ export default function Adoption({ currentUser }) {
         const res = await axios.get("/api/users/adoptions" , { headers: {"x-access-token" : currentUser.token} });
         if (currentUser?.user?.isCompany) {
             setAdoption(res.data.adoptions);
-            //setAdoption([...adoptions, res.data.adoptions]);
-            console.log("company");
           } else if (currentUser?.user?.isStudent) {
             setAdoption(res.data.adopted);
-            //setAdoption([...adoptions, res.data.adopted]);
-            console.log("students");
           }
       } catch (err) {
         console.log(err);
@@ -56,7 +52,6 @@ export default function Adoption({ currentUser }) {
     setAdoption(adoptions.filter(user => user.id !== userId))
     setMessage(" étudiant supprimé avec succes"); 
     setSuccess(true);
-    console.log(userId);
   }, [adoptions])
 
 

@@ -62,6 +62,7 @@ function Student () {
 
       const age = (anneeEncours.getFullYear() - date.getFullYear());
 
+
       const handleConversation = async () => {
 
         try {
@@ -69,7 +70,6 @@ function Student () {
             const res = await axios.get(
               `/api/conversations/find/${user?.user?._id}/${userId}`
             , { headers: {"x-access-token" : user?.token} } );
-            console.log(res);
             if (res.data) {
               //if conversation existe send email
               var templateParams = {
@@ -81,7 +81,6 @@ function Student () {
             }
               emailjs.send('service_7s3s4up', 'template_drlm32o', templateParams , 'vZuhD0JUkXi3hPizJ')
               .then((result) => {
-                  console.log(result.text);
                   setMessage("Email de notification envoyé avec succès");
                   setSuccess(true)
         
@@ -108,7 +107,6 @@ function Student () {
             }
               emailjs.send('service_7s3s4up', 'template_drlm32o', templateParams , 'vZuhD0JUkXi3hPizJ')
               .then((result) => {
-                  console.log(result.text);
                   setMessage("Email de notification envoyé avec succès");
                   setSuccess(true)
         
@@ -117,30 +115,35 @@ function Student () {
               });
               navigate("/messenger");
             } catch (err) {
-             
-              console.log(err);
-              navigate("/login"); 
+              ! user ? window.location.href = '/login' :  console.log(err); 
             }
             }
           }else{
+            ! user ? window.location.href = '/login' :  console.log("");
             setColor(false); 
             setMessage("Attention vous etes etudiant! vous ne pouver pas contacter un autre, choisisez le profil entreprise si vous vous etes trompé ");
             setSuccess(true);
-            ! user ? navigate("/login") :  console.log("");
+            
           }
 
           } catch (err) {
-            ! user ? navigate("/login") :  console.log(err); 
+            ! user ? window.location.href = '/login' :  console.log(err); 
            
 
           }
       };
 
 
+      
+
+
 
       const handleAdoption = async () => {
-      
-            try {
+
+        if (user) {
+          
+
+          try {
               if (user?.user?.isCompany) {
               await axios.put("/api/users/" + userId +"/adopte", { id : user?.user?._id} , { headers: {"x-access-token" : user?.token} });
               //navigate("/messenger");
@@ -154,7 +157,6 @@ function Student () {
             }
               emailjs.send('service_7s3s4up', 'template_drlm32o', templateParams , 'vZuhD0JUkXi3hPizJ')
               .then((result) => {
-                  console.log(result.text);
                   setMessage("Email de notification envoyé avec succès");
                   setSuccess(true)
         
@@ -164,22 +166,27 @@ function Student () {
               setMessage("adopté avec succes");
               setSuccess(true)
               } else{
+                ! user ? window.location.href = '/login' : console.log("vous avez adopté");
                 setColor(false); 
                 setMessage("Attention vous etes etudiant! vous ne pouver pas adopter un autre, choisisez le profil entreprise si vous vous etes trompé ");
                 setSuccess(true)
               }
             } catch (err) {
-             ! user ? navigate("/login") : setMessage(" vous avez déjà adopté cet étudiant") && setSuccess(true) ; 
+             ! user ? window.location.href = '/login' : setMessage(" vous avez déjà adopté cet étudiant") && setSuccess(true) ; 
              setMessage(" vous avez déjà adopté cet étudiant"); 
              setColor(false); 
              setSuccess(true)
             //console.log(err.reponse.status);
           
             }
+
+
+        } else {
+          window.location.href = '/login';
+        }
             
-    
-          
-       
+            
+  
       };
 
  

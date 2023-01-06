@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import "./dashboard.css";
 import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
@@ -19,7 +19,6 @@ export default function Dashboard() {
 	
 	const [currentComponent, setCurrentComponent] = useState(<Home currentUser={user}/>);
 
-	console.log(user);
 	const handleHome = () => {
 		if (user?.user?.isCompany) {
 			setCurrentComponent(<CompanyHome currentUser={user}/>);

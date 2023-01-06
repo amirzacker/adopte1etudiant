@@ -69,7 +69,6 @@ export default function StudentHome({ currentUser }) {
   const DateCv = convertDate(new Date(parseInt(timestampCv)));
   const DateMo = convertDate(new Date(parseInt(timestampMo)));
 
-  console.log(timestampMo);
 
   const handleChange = async (event) => {
     try {
@@ -78,7 +77,6 @@ export default function StudentHome({ currentUser }) {
         status: event.target.checked
       }
       const res = await axios.put("/api/users/" + user?._id, data, { headers: {"x-access-token" : token} });
-      console.log(res);
       setStatus( event.target.checked );
 
     const storedObject = JSON.parse(localStorage.getItem('user'));

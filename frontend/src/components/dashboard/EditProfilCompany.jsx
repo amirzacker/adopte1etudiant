@@ -36,7 +36,6 @@ export default function EditProfilCompany({ currentUser , token }) {
 
   const handleClick = async (data) => {
 
-    console.log(data);
     const user = {
       id: currentUser?._id,
       name: name,
@@ -63,7 +62,6 @@ export default function EditProfilCompany({ currentUser , token }) {
       const res = await axios.put("/api/users/" + currentUser?._id, user, {
         headers: { "x-access-token": token },
       });
-      console.log(res);
       const storedObject = JSON.parse(localStorage.getItem("user"));
       // Update the object
       storedObject.user = res.data;

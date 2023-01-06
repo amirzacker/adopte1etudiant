@@ -39,7 +39,6 @@ export default function EditPassword({ currentUser , token}) {
       const res = await axios.put("/api/users/" + currentUser?._id, user, {
         headers: { "x-access-token": token },
       });
-      console.log(res);
       const storedObject = JSON.parse(localStorage.getItem("user"));
       // Update the object
       storedObject.user = res.data;

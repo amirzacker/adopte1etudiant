@@ -7,5 +7,5 @@ module.exports = {
   ADMIN_COOKIE_NAME: "admin-bro",
   ADMIN_EMAIL: "abgurene@gmail.com",
   ADMIN_PASSWORD: "amircentre",
-  fronUrl: "https://adopte1etudiant.onrender.com/"
+  fronUrl: "https://adopte1etudiant.onrender.com"
 };

@@ -80,8 +80,6 @@ export default function RegisterCompany() {
                 data.append("file", file);
                 user.profilePicture = fileName;
   
-                console.log(data);
-                console.log(file);
                 try {
                     await axios.post("/api/uploads",data);
                 } catch (error) {

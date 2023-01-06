@@ -45,7 +45,6 @@ export default function Contact() {
         
           emailjs.sendForm('service_7s3s4up', 'template_ydlmofw', form.current, 'vZuhD0JUkXi3hPizJ')
           .then((result) => {
-              console.log(result.text);
               setMessage("Email de contact envoyé avec succès");
               setSuccess(true)
               reset()

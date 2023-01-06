@@ -1,5 +1,5 @@
 import './home.css'
-import React, { useCallback, useContext } from 'react'
+import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import axios from "axios";
@@ -19,19 +19,7 @@ function Home () {
     
   }, [students, ]);
 
-useEffect(() => {
- 
-  axios.get('/api/domains')
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.log(error);
-  });
 
-}, [students]);
-
-console.log(students);
 
   return (
     <div >

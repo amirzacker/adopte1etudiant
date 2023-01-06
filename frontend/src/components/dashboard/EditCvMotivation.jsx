@@ -55,7 +55,6 @@ export default function EditCvMotivation({ currentUser, token }) {
       const res = await axios.put("/api/users/" + currentUser?._id, user, {
         headers: { "x-access-token": token },
       });
-      console.log(res);
       const storedObject = JSON.parse(localStorage.getItem("user"));
       // Update the object
       storedObject.user = res.data;
@@ -65,7 +64,6 @@ export default function EditCvMotivation({ currentUser, token }) {
       setMessage("profile mise à jour avec succès");
       setSuccess(true);
       window.location.reload();
-      console.log("ami pss");
       reset();
     } catch (err) {
       console.log(err);
