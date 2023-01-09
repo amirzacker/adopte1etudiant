@@ -423,8 +423,11 @@ main {
     }
     .sidebar {
         order: 2;
-        width: 90%;
+        width: 85%;
         height: 100px;
+        box-shadow: none;
+        margin: 1rem 1rem 1rem 1rem;
+     
     }
     .sidebar ul {
         display: flex;

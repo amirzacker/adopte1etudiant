@@ -25,18 +25,10 @@ export default function Conversation({ conversation, currentUser }) {
     <div className="conversation">
       <img
         className="conversationImg"
-        src="/assets/img/avatar1.png"
-        alt=""
+        src={`${user?.profilePicture ? PF + user?.profilePicture : PF + "pic2.jpg"}`}
+        alt="avatar-user"
       />
-      {/* <img
-        className="conversationImg"
-        src={
-          user?.profilePicture
-            ? PF + user.profilePicture
-            : PF + "person/noAvatar.png"
-        }
-        alt=""
-      /> */}
+     
       <span className="conversationName">{user?.email}</span>
     </div>
   );

@@ -36,7 +36,7 @@ function Home () {
     <div className="pic-ctn">
             {
           students.map((student, i) => (
-              <img key={i} onClick={() => navigate('/student/' + student._id)} src={`${PF + student?.profilePicture}`} alt="" className="pic btn btn-link"/>
+              <img key={i} onClick={() => navigate('/student/' + student._id)} src={`${student?.profilePicture ? PF + student?.profilePicture : PF + "pic2.jpg"}`} alt="" className="pic btn btn-link"/>
           ))}
     </div>
     <div className="heading text-center">

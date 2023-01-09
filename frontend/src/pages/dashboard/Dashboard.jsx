@@ -55,7 +55,7 @@ export default function Dashboard() {
 			<ul>
 				<div className="student-avatar-container">
 					<li className="student-avatar-dashboard">
-						<img src={`${PF + user?.user?.profilePicture}`} alt="avatar-student"/>
+						<img src={`${user?.user?.profilePicture ? PF + user?.user?.profilePicture : PF + "pic2.jpg"}`} alt="avatar-student"/>
 					</li>
 				</div>
 				<div className="center-icons-dashboard">
@@ -74,11 +74,7 @@ export default function Dashboard() {
 							<i className="fas fa-users"></i>
 						</Link>
 					</li>
-					<li className="bell-icon">
-						<Link to="#">
-							<i className="fas fa-bell"></i>
-						</Link>
-					</li>
+		
                 <li>
 					<Link onClick={Logout} to="#"><img src="/assets/svg/iconnavdashboard/deconnexion.svg" alt="deconnexion" id="logout-icon"/></Link>
 				</li>

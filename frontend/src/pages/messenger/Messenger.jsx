@@ -18,7 +18,7 @@ export default function Messenger() {
   const socket = useRef();
   const { user } = useContext(AuthContext);
   const scrollRef = useRef();
-
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
 
   useEffect(() => {
@@ -119,7 +119,7 @@ export default function Messenger() {
 			<ul>
 				<div className="student-avatar-container">
 					<li className="student-avatar-dashboard">
-						<img src="/assets/img/avatar3.png" alt="avatar-student"/>
+						<img src={`${user?.user?.profilePicture ? PF + user?.user?.profilePicture : PF + "pic2.jpg"}`} alt="avatar-student"/>
 					</li>
 				</div>
 				<div className="center-icons-dashboard">
@@ -136,11 +136,6 @@ export default function Messenger() {
 					<li className="user-icon">
 						<Link to="/dashboard">
 							<i className="fas fa-users"></i>
-						</Link>
-					</li>
-					<li className="bell-icon">
-						<Link to="/dashboard">
-							<i className="fas fa-bell"></i>
 						</Link>
 					</li>
                 <li>
@@ -174,7 +169,7 @@ export default function Messenger() {
                 <div className="chatBoxTop">
                   {messages.map((m, i) => (
                     <div key={i} ref={scrollRef}>
-                      <Message key={i} message={m} own={m.sender === user?.user?._id} />
+                      <Message key={i} message={m} currentUser={user?.user} own={m.sender === user?.user?._id} />
                     </div>
                   ))}
                 </div>

@@ -198,7 +198,7 @@ function Student () {
             <div className="single-student-main">
                 <div className="firstpart">
                     <div className="profil-student">
-                        <div className="photo-student"><img  src={`${PF + student?.profilePicture}`} alt="student"/></div>
+                        <div className="photo-student"><img  src={`${student?.profilePicture ? PF + student?.profilePicture : PF + "pic2.jpg" }` }  alt="student"/></div>
                         <div className="personal-information-student">
                             <h3>{student?.firstname}</h3>
                             <h4>{student?.lastname}</h4>
@@ -238,7 +238,7 @@ function Student () {
                     <div className="pic-ctn">
                     {
                      studentsSameDomain.map((student, i) => (
-                        <img key={i} onClick={() => navigate('/student/' + student._id)} src={`${PF + student?.profilePicture}`} alt="" className="pic btn btn-link"/>
+                        <img key={i} onClick={() => navigate('/student/' + student._id)} src={`${student?.profilePicture ? PF + student?.profilePicture : PF + "pic2.jpg"}`} alt="" className="pic btn btn-link"/>
                     ))}
 
                     </div>

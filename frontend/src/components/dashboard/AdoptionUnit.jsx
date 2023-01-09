@@ -6,6 +6,7 @@ import { IconButton } from '@material-ui/core';
 import { Delete  } from '@material-ui/icons';
 
 export default function AdoptionUnit({ user, currentUser, deleteUser, handleClickUnadopte }) {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const handleUnAdoption = async () => {
 
     try {
@@ -30,8 +31,8 @@ const handleDelete = (event) => {
     <div className="card" style={{ width: "18rem" }}>
       <Link to="#">
         <img
-          className="card-img-top"
-          src="/assets/img/avatar3.png"
+         className="card-img-top"
+          src={`${user?.profilePicture ? PF + user?.profilePicture : PF + "pic2.jpg"}`}
           alt="Card cap"
         />
       </Link>
