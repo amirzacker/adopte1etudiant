@@ -23,7 +23,8 @@ export default function EditProfilStudent({ currentUser , token }) {
     const day = date.getDate();
     const year = date.getFullYear();
     const paddedDay = day < 10 ? `0${day}` : day;
-    return `${year}-${month}-${paddedDay}`;
+    const paddedMonth = month < 10 ? `0${month}` : month;
+    return `${year}-${paddedMonth}-${paddedDay}`;
   }
 
   const startDate = convertDate(new Date(currentUser?.startDate));

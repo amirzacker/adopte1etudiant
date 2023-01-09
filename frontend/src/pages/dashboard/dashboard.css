@@ -531,5 +531,10 @@ main {
     .received-messages {
         width: 80%;
     }
+
+    .h4, h4, h5 {
+        font-size: smaller;
+    }
+    
 }
 

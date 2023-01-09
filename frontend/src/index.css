@@ -324,7 +324,6 @@ section h2:hover {
     .login-container {
         margin: 1em;
     }
-    .glow-on-hover2 {}
     /* students profiles */
     .rowcards {
         justify-content: center;
@@ -343,6 +342,10 @@ section h2:hover {
         font-size: 15px;
         top: 32%;
     }
+    .footer-col h4 {
+        font-size: 15px;
+    }
+  
 }
 
 

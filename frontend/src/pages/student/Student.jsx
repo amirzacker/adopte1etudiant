@@ -209,8 +209,8 @@ function Student () {
                     <div className="description-student">
                         <div className="description-student-principal">
                             <div className="description-student-1">
-                                <p>Cherche stage {student?.searchType?.name}</p>
-                                <p> Du {" "}  {startDate}  {" "} {endDate}</p>
+                                <p>Cherche {student?.searchType?.name}</p>
+                                <p> Du {" "}  {startDate } au {" "} {endDate }</p>
                             </div>
                             <div className="description-student-2">
                                 <h4>DESCRIPTION</h4>
