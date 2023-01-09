@@ -28,22 +28,12 @@ export default function Message({ message, own , currentUser }) {
     <div className={own ? "message own" : "message"}>
       <div className="messageTop">
 
-        {
-          own ?
-          <img
-          className="messageImg"
-           src={`${ PF + currentUser?.profilePicture }`}
-            alt="avatar sender"
-          />
-          :
-          <img
-          className="messageImg"
-           src={`${ PF + user?.profilePicture }`}
-            alt="avatar sender"
-          />
-
-        }
-      
+        
+        <img
+        className="messageImg"
+         src={`${ own ?  PF + currentUser?.profilePicture  :  PF + user?.profilePicture }`}
+          alt="avatar sender"
+        />
         <p className="messageText">{message.text}</p>
       </div>
       <div className="messageBottom">{format(message.createdAt)}</div>

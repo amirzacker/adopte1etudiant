@@ -52,6 +52,8 @@ export default function Contact() {
               console.log(error.text);
           });
 
+          setSuccess(false)
+
     };
 
   return (
