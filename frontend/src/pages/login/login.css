@@ -125,9 +125,9 @@ input[type="submit"] {
     .mapage {
         display: block;
         height: 100vh;
-        /* justify-content: center; */
     }
     .alert {
         width: auto;
+        padding: 0px;
     }
 }
