@@ -74,6 +74,7 @@ class UsersController {
   }
   async update(req, res, next) {
       try {
+       
         if (req.body.id == req.params.id || req.user.isAdmin){
           const id = req.params.id;
           const data = req.body;
@@ -90,7 +91,7 @@ class UsersController {
    
   }
   async delete(req, res, next) {
-    if (req.body.id == req.params.id || req.user.isAdmin) {
+    if (req.user.id == req.params.id || req.user.isAdmin) {
       try {
         const id = req.params.id;
         await usersService.delete(id);
@@ -175,7 +176,6 @@ class UsersController {
 
     try {
       const user = req.user;
-      console.log(user);
        if (user.isCompany) {
         const adoptions = await Promise.all(
           user.adoptions.map((studentsId) => {

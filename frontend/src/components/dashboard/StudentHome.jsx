@@ -94,7 +94,7 @@ export default function StudentHome({ currentUser }) {
   const handleDeleteCompte = async (e) => {
     try {
         // Submit the form
-        await axios.delete("/api/users/" + user?._id, { headers: {"x-access-token" : token} });
+        await axios.delete("/api/users/" + user?._id,  { headers: {"x-access-token" : token} });
         // after delete remove  localStorage
         localStorage.removeItem('user');
         //and reload page to deconnecte
