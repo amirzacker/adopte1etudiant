@@ -5,12 +5,10 @@ class UserService {
   getAll() {
     //return User.find({}, "-password")
     return User.find({isStudent: true, status: true}, "-password")
-    //return User.find({})
   }
   getStudents() {
     //return User.find({}, "-password")
     return User.find({isStudent: true, status: true}, "-password")
-    //return User.find({})
   }
   getById(id) {
     //return User.findOne({email : id}, "-password");
@@ -21,7 +19,8 @@ class UserService {
     //return User.findById(id, "-password");
   }
   getByDomain(domain) {
-    return User.find({ domain: domain }, "-password");
+    return User.find({domain: domain, isStudent: true, status: true }, "-password")
+    //return User.find({isStudent: true, status: true}, "-password")
   }
  
   create(data) {

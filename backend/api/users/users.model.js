@@ -31,12 +31,10 @@ const userSchema = Schema({
     default: "1672237090755avatar3.png",
   },
   cv: {
-    type: String,
-    default: "",
+    type: String
   },
   motivationLetter: {
-    type: String,
-    default: "",
+    type: String
   },
   searchType: {
     type: Schema.Types.ObjectId,

@@ -50,7 +50,7 @@ class UsersController {
   }
   async getByDomain(req, res, next) {
     try {
-      const domain = req.query.domain;
+      const domain = req.params.domainId;
       const user = await usersService.getByDomain(domain);
       if (!user) {
         throw new NotFoundError();
