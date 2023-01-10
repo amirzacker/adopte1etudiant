@@ -58,8 +58,8 @@ img:nth-child(4) {
 
 @media screen and (max-width: 390px) {
   .pic-ctn .pic {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     align-items: center;
   }
   .pic-ctn > img {

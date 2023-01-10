@@ -21,7 +21,7 @@ class UserService {
     //return User.findById(id, "-password");
   }
   getByDomain(domain) {
-    return User.find({ domain: domain }, "-password");
+    return User.find({ domain: domain, isStudent: true, status: true }, "-password");
   }
  
   create(data) {
