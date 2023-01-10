@@ -36,6 +36,7 @@
 @media screen and (max-width: 390px) {
   .card {
       margin: 0 !important;
+      margin-bottom: 12px !important;
   }
 
 }
