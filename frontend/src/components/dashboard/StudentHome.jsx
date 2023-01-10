@@ -163,9 +163,9 @@ export default function StudentHome({ currentUser }) {
       {" "} {user?.searchType?.name}
 			</h4>
 			<h5>Du
-      {" "} {startDate ? "" :startDate} {" "}
+      {" "} {startDate ?  startDate : "" } {" "}
 				au
-        {" "} {endDate ? "" : endDate }
+        {" "} {endDate ? endDate : ""  }
       </h5>
 		</div>
 		<div className="partition-header-status">
@@ -198,7 +198,7 @@ export default function StudentHome({ currentUser }) {
 	<div className="dash-partition-cv-lm">
 		<div className="partition-cv">
 			<h4>Mon CV</h4>
-			<h5>Mise à jour le {" "} {DateCv ? "" :DateCv}</h5>
+			<h5>Mise à jour le {" "} {DateCv ? DateCv:  ""}</h5>
 		
 			<h6>
 
@@ -224,7 +224,7 @@ export default function StudentHome({ currentUser }) {
    
 		<div className="partition-lm">
 			<h4>Lettre Mot.</h4>
-			<h5>Mise à jour le {" "} {DateMo ? "" : DateMo}</h5>
+			<h5>Mise à jour le {" "} {DateMo ? DateMo : "" }</h5>
 			<h6>
       <IconButton onClick={() => setOpenCv(true)}>
       <AttachFileIcon fontSize="large" color="secondary"/>
