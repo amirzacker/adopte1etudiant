@@ -18,7 +18,6 @@
 .nav-link {
     margin-right: 30px;
     border-color: white !important;
-    color: white !important;
 }
 .nav-link.active {
     border-color: #262D2A !important;

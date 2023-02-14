@@ -15,8 +15,24 @@
     color: #E35226;
 }
 
+.row .bloc-produit p {
+    text-align: justify;
+}
+
 
  h2 {
     text-align: center;
     margin: 30px 0 30px 0;
 }
+
+
+
+@media screen and (max-width: 399px) {
+    .h4, h4, h5 {
+        font-size: x-large;
+      }
+
+      .mobile-home{
+        padding: 30px;
+      }
+  }
