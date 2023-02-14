@@ -8,18 +8,10 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext';
 import FlashMessage from '../../components/alert/FlashMessage';
 import emailjs from '@emailjs/browser';
-import { Add, Remove } from "@material-ui/icons";
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 function Student () {
-  const userId = useParams().id;
-  const { user, dispatch } = useContext(AuthContext);
-  const [userForFavoris, setUserForFavoris] = useState(null);
-  const [userForAdoption, setUserForAdoption] = useState(null);
-  const [userForConversation, setUserForConversation] = useState(null);
- 
-  const [favoris, setFavoris] = useState(null);
+    const { user } = useContext(AuthContext);
+
     const [success, setSuccess] = useState(false);
 
     const [message, setMessage] = useState("");
@@ -29,95 +21,7 @@ function Student () {
     const navigate = useNavigate();
 
     const [student, setStudent] = useState({});
-
-    useEffect(() => {
-      const getUser = async () => {
-        try {
-          const res = await axios.get("/api/users/" + user?.user?._id);
-          setUserForFavoris(res.data);
-        } catch (err) {
-          console.log(err);
-        }
-      };
-      getUser();
-      setFavoris(userForFavoris?.favoris.includes(userId))
-  
-    }, [user, favoris,userForFavoris, userId]);
-
-    useEffect(() => {
-      const getAdoption = async () => {
-        try {
-          const res = await axios.get(
-            `/api/adoptions/find/${user?.user?._id}/${userId}`,
-            {
-              headers: { "x-access-token": user.token },
-            }
-          );
-          setUserForAdoption(res.data);
-        } catch (err) {
-          console.log(err);
-        }
-      };
-      
-      const getContact = async () => {
-        try {
-          const res = await axios.get(
-            `/api/conversations/find/${user?.user?._id}/${userId}`,
-            {
-              headers: { "x-access-token": user.token },
-            }
-          );
-          setUserForConversation(res.data);
-        } catch (err) {
-          console.log(err);
-        }
-      };
-        getAdoption();
-        getContact();
-      
-    }, [
-      user,
-      userForAdoption,
-      userForConversation,
-      userId
-    ]);
-    console.log(userForAdoption);
-    const handleClick = async () => {
-
-      if (!user) {
-        window.location.href = '/login';
-        return; 
-      }
-      try {
-        if (favoris) {
-          await axios.put(
-            "/api/users/" + userId + "/unfavoris",
-            { id: user?.user?._id },
-            { headers: { "x-access-token": user?.token } }
-          );
-
-          dispatch({ type: "UNFAVORIS", payload: userId });
-            //logic to unfavoris
-            setMessage("étudiant retiré des favoris"); 
-            setColor(false); 
-            setSuccess(true)
-        } else {
-          await axios.put(
-            "/api/users/" + userId + "/addfavoris",
-            { id: user?.user?._id },
-            { headers: { "x-access-token": user?.token } }
-          );
-          dispatch({ type: "FAVORIS", payload: userId });
-            //logic to unfavoris
-            setMessage("étudiant ajouté aux favoris"); 
-            setSuccess(true)
-        }
-        setFavoris(!favoris);
-
-      } catch (err) {
-      }
-      window.location.reload();
-    };
+    const userId = useParams().id;
   
     useEffect(() => {
       const fetchUser = async () => {
@@ -158,19 +62,14 @@ function Student () {
 
       const age = (anneeEncours.getFullYear() - date.getFullYear());
 
-      const handleConversation = async () => {
 
-        if (!user) {
-          window.location.href = '/login';
-          return; 
-        }
+      const handleConversation = async () => {
 
         try {
           if (user?.user?.isCompany) {
             const res = await axios.get(
               `/api/conversations/find/${user?.user?._id}/${userId}`
             , { headers: {"x-access-token" : user?.token} } );
-
             if (res.data) {
               //if conversation existe send email
               var templateParams = {
@@ -182,7 +81,6 @@ function Student () {
             }
               emailjs.send('service_7s3s4up', 'template_drlm32o', templateParams , 'vZuhD0JUkXi3hPizJ')
               .then((result) => {
-                  console.log(result.text);
                   setMessage("Email de notification envoyé avec succès");
                   setSuccess(true)
         
@@ -209,7 +107,6 @@ function Student () {
             }
               emailjs.send('service_7s3s4up', 'template_drlm32o', templateParams , 'vZuhD0JUkXi3hPizJ')
               .then((result) => {
-                  console.log(result.text);
                   setMessage("Email de notification envoyé avec succès");
                   setSuccess(true)
         
@@ -218,66 +115,78 @@ function Student () {
               });
               navigate("/messenger");
             } catch (err) {
-             
-              console.log(err);
+              ! user ? window.location.href = '/login' :  console.log(err); 
             }
             }
           }else{
+            ! user ? window.location.href = '/login' :  console.log("");
             setColor(false); 
             setMessage("Attention vous etes etudiant! vous ne pouver pas contacter un autre, choisisez le profil entreprise si vous vous etes trompé ");
-            setSuccess(true)
+            setSuccess(true);
+            
           }
 
           } catch (err) {
-         console.log(err); 
+            ! user ? window.location.href = '/login' :  console.log(err); 
            
 
           }
-       
       };
 
+
+      
+
+
+
       const handleAdoption = async () => {
-        if (!user) {
-          window.location.href = '/login';
-          return; 
-        }
-            try {
+
+        if (user) {
+          
+
+          try {
               if (user?.user?.isCompany) {
-            // Logic for handling form submit here
-            console.log(userForAdoption);
-                if (!userForAdoption) {
-                  //logic when user is not adopted
-                  const data = {
-                    adopterId: user?.user._id,
-                    adoptedId: userId,
-                  };
-                  const res = await axios.post(`/api/adoptions/`, data, {
-                    headers: { "x-access-token": user.token },
-                  });
-                  console.log(res.data);
-                  setMessage("adopté avec succes");
-                  setSuccess(true);
-                  
-                }else{
-                  //logic when user is  adopted
-                  setMessage(" vous avez déjà adopté cet étudiant"); 
-                  setColor(false); 
+              await axios.put("/api/users/" + userId +"/adopte", { id : user?.user?._id} , { headers: {"x-access-token" : user?.token} });
+              //navigate("/messenger");
+              const templateParams = {
+                to_email: student?.email,
+                from_email: user?.user?.email,
+                to_name: student?.firstname,
+                from_name: user?.user?.name,
+                message: "Vous avez été adopté par une  entreprise, veuillez prendre connaissance sur adopte1etudiant.fr ",
+          
+            }
+              emailjs.send('service_7s3s4up', 'template_drlm32o', templateParams , 'vZuhD0JUkXi3hPizJ')
+              .then((result) => {
+                  setMessage("Email de notification envoyé avec succès");
                   setSuccess(true)
-                }
-            
+        
+              }, (error) => {
+                  console.log(error.text);
+              });
+              setMessage("adopté avec succes");
+              setSuccess(true)
               } else{
-                //logic when user is not a company
+                ! user ? window.location.href = '/login' : console.log("vous avez adopté");
                 setColor(false); 
                 setMessage("Attention vous etes etudiant! vous ne pouver pas adopter un autre, choisisez le profil entreprise si vous vous etes trompé ");
                 setSuccess(true)
               }
             } catch (err) {
-    
-            console.log(err);
+             ! user ? window.location.href = '/login' : setMessage(" vous avez déjà adopté cet étudiant") && setSuccess(true) ; 
+             setMessage(" vous avez déjà adopté cet étudiant"); 
+             setColor(false); 
+             setSuccess(true)
+            //console.log(err.reponse.status);
           
-            } 
-            window.location.reload();
-       
+            }
+
+
+        } else {
+          window.location.href = '/login';
+        }
+            
+            
+  
       };
 
  
@@ -289,7 +198,7 @@ function Student () {
             <div className="single-student-main">
                 <div className="firstpart">
                     <div className="profil-student">
-                        <div className="photo-student"><img  src={`${student?.profilePicture ? PF + student?.profilePicture : PF + "pic2.jpg" }` } alt="student"/></div>
+                        <div className="photo-student"><img  src={`${student?.profilePicture ? PF + student?.profilePicture : PF + "pic2.jpg" }` }  alt="student"/></div>
                         <div className="personal-information-student">
                             <h3>{student?.firstname}</h3>
                             <h4>{student?.lastname}</h4>
@@ -300,8 +209,8 @@ function Student () {
                     <div className="description-student">
                         <div className="description-student-principal">
                             <div className="description-student-1">
-                                <p>Cherche stage {student?.searchType?.name}</p>
-                                <p> Du {" "}  {startDate}  {" "} {endDate}</p>
+                                <p>Cherche {student?.searchType?.name}</p>
+                                <p> Du {" "}  {startDate } au {" "} {endDate }</p>
                             </div>
                             <div className="description-student-2">
                                 <h4>DESCRIPTION</h4>
@@ -312,20 +221,8 @@ function Student () {
                         </div>
                         <div className="attachments-student">
                             <div className="adopte-single-student-container">
-                                <Link className="adopte-single-student-button" onClick={handleAdoption} to="">    {userForAdoption ? " Déja Adopté": "Adopter"} {userForAdoption ? <FavoriteIcon style={{ color: 'with' }} /> : <Add />}</Link>
-                                 {user?.user?.isCompany ? 
-                                <button className="rightbarFollowButton" onClick={handleClick}>
-                            {favoris ? "Favoris" : "Favoris"}
-                            {favoris ? <Remove /> : <Add />}
-                            {favoris ?  <FavoriteIcon style={{ color: 'red' }} /> : <FavoriteBorderIcon />}
-                                 </button>
-                                 : null}
-                                 
+                                <Link className="adopte-single-student-button" onClick={handleAdoption} to="">Adopter</Link>
                                 <Link onClick={handleConversation}  className="adopte-single-student-button" to="">Contacter</Link>
-                            </div>
-                            <div>
-                            <div>
-                            </div>
                             </div>
                             <div className="attachments-student-files">
                               <a href={`${PF + student?.cv}`} target="_blank" rel="noreferrer" ><img src="/assets/svg/icon-cv.svg" alt="cv-logo" className="cv-lm-svg"/></a>
@@ -341,7 +238,7 @@ function Student () {
                     <div className="pic-ctn">
                     {
                      studentsSameDomain.map((student, i) => (
-                        <img key={i} onClick={() => navigate('/student/' + student._id)} src={`${PF + student?.profilePicture}`} alt="" className="pic btn btn-link"/>
+                        <img key={i} onClick={() => navigate('/student/' + student._id)} src={`${student?.profilePicture ? PF + student?.profilePicture : PF + "pic2.jpg"}`} alt="" className="pic btn btn-link"/>
                     ))}
 
                     </div>

@@ -4,9 +4,9 @@ import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import StudentHome from "../../components/dashboard/StudentHome";
 import { useState } from "react";
-import Adoption from "../../components/dashboard/Adoption";
 import CompanyHome from "../../components/dashboard/CompanyHome";
 import Home from "../../components/dashboard/Home";
+import Table from "../../components/dashboard/Table";
 
 
 export default function Dashboard() {
@@ -31,7 +31,7 @@ export default function Dashboard() {
 	  };
 
 	const handleAdoption = () => {
-		setCurrentComponent( <Adoption currentUser={user}/>);
+		setCurrentComponent( <Table currentUser={user}/>);
 		setUserssColor1('userss-icon');
 		setUserssColor2('');
 

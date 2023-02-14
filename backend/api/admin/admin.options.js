@@ -5,6 +5,8 @@ const domainsSchema = require("../domains/domains.schema");
 const messagesSchema = require("../messages/messages.schema");
 const searchTypesSchema = require("../searchTypes/searchTypes.schema");
 const usersModel = require("../users/users.model");
+const contractSchema = require("../contracts/contracts.model");
+const adoptionSchema = require("../adoptions/adoptions.model");
 
 
 AdminBro.registerAdapter(AdminBroMongoose);
@@ -33,6 +35,22 @@ const options = {
         options: {
             navigation: {
                 name: 'SearchType',
+                icon: 'List',
+            },
+          },
+    },
+    { resource: contractSchema ,
+        options: {
+            navigation: {
+                name: 'Contract',
+                icon: 'List',
+            },
+          },
+    },
+    { resource: adoptionSchema ,
+        options: {
+            navigation: {
+                name: 'Adoption',
                 icon: 'List',
             },
           },

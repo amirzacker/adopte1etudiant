@@ -3,7 +3,6 @@ const messagesService = require("./messages.service");
 
 
 
-
 class MessagesController {
 
     async get(req, res, next) {

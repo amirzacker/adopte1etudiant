@@ -31,10 +31,12 @@ const userSchema = Schema({
     default: "1672237090755avatar3.png",
   },
   cv: {
-    type: String
+    type: String,
+    default: "",
   },
   motivationLetter: {
-    type: String
+    type: String,
+    default: "",
   },
   searchType: {
     type: Schema.Types.ObjectId,
@@ -54,11 +56,7 @@ const userSchema = Schema({
     type: Date,
     require: false
   },
-  isAdopted: {
-    type: Array,
-    default: [],
-  },
-  adoptions: {
+  favoris: {
     type: Array,
     default: [],
   },

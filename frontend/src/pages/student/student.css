@@ -4,6 +4,12 @@
   border-radius: 20px;
 }
 
+.rightbarFollowButton{
+  border-style: none;
+  background:content-box;
+}
+
+
 
 /* 1 ère partie  */
 

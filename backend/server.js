@@ -13,6 +13,8 @@ const authMiddleware = require("./middlewares/auth");
 const domainRouter = require("./api/domains/domains.router");
 const searchTypeRouter = require("./api/searchTypes/searchTypes.router");
 const messagesRouter = require("./api/messages/messages.router");
+const adoptionsRouter = require("./api/adoptions/adoptions.router");
+const contractsRouter = require("./api/contracts/contracts.router");
 const conversationsRouter = require("./api/conversations/conversations.router");
 const cookieParser = require('cookie-parser');
 const session = require("express-session")
@@ -110,11 +112,6 @@ app.use((req, res, next) => {
 
 //cookie
 app.use(cookieParser());
-app.use(session({
-  secret: 'your-secret-here',
-  resave: false,
-  saveUninitialized: false
-}));
 
 app.use(session({
   secret: config.SESSION_SECRET || 'done-un-tres-tres-logn-mot-de-masww', // <-- Add the secret option here
@@ -170,8 +167,11 @@ app.post("/api/uploads", upload.single("file"), (req, res) => {
   }
 });
 
+
 app.use("/api/messages", authMiddleware, messagesRouter);
 app.use("/api/conversations", authMiddleware, conversationsRouter);
+app.use("/api/adoptions", authMiddleware,  adoptionsRouter);
+app.use("/api/contracts", authMiddleware,  contractsRouter);
 app.use("/api/users", userRouter);
 //app.use("/api/users", authMiddleware, userRouter);
 app.post("/api/login", usersController.login);
