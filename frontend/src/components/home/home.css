@@ -26,10 +26,47 @@
 }
 
 
+.section-3 {
+    /*   background: no-repeat url("../../../public/assets/img/background-section-3.jpg"); */
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-size: auto;
+      display: block;
+      min-height: 481px;
+      background-size: cover;
+      max-width: 100%;
+      background-position: center;
+      margin: auto;
+    }
+  
+    .section-3 p {
+      font-family: 'MoskBold700', sans-serif;
+      text-transform: uppercase;
+      text-align: center;
+      max-width: 150px;
+      font-size: 20px;
+      color: #fb4d41;
+      margin: auto;
+      line-height: 24px;
+    }
+  
+    .wistia_embed:hover {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  
+    .section-3 .img-hover:hover {
+      opacity: 0.8;
+    }
+    .section-3 .img-hover {
+      transition: 0.5s;
+    }
+
+
 
 @media screen and (max-width: 399px) {
-    .h4, h4, h5 {
-        font-size: x-large;
+    .mobile-home h4 {
+        font-size: x-large !important ;
       }
 
       .mobile-home{
