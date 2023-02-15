@@ -31,7 +31,7 @@ function Home () {
             <p>Vous êtes in <b>THE RIGHT PLACE</b> pour trouver des profils appropriés à votre entreprise</p>
             <div>
             <Link to='/students' className="a-btn">
-            <span className="a-btn-text">Les profils</span>
+            <span className="a-btn-text">Profils</span>
             <span className="a-btn-slide-text">Now!</span>
             <span className="a-btn-icon-right"><span></span></span>
             </Link>

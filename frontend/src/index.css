@@ -339,7 +339,7 @@ section h2:hover {
 
 @media screen and (max-width: 390px) {
     .slogan-text {
-        font-size: 15px;
+        font-size: 20px;
         top: 32%;
     }
     .footer-col h4 {
