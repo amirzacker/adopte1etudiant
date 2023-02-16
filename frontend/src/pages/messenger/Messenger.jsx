@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import {io} from "socket.io-client";
-const ENDPOINT = "wss://adopte1etudiant.onrender.com"
+const ENDPOINT = "ws://adopte1etudiant.onrender.com"
 
 export default function Messenger() {
   const [conversations, setConversations] = useState([]);
