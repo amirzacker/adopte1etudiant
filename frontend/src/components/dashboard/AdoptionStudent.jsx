@@ -54,7 +54,6 @@ export default function AdoptionStudent({ currentUser }) {
       setMessage(" adoption acceptée avec succes");
       setSuccess(true);
 
-      console.log(res);
     } catch (err) {
       console.log(err);
     }
@@ -74,7 +73,6 @@ export default function AdoptionStudent({ currentUser }) {
       setMessage(" adoption rejetée avec succes");
       setSuccess(true);
 
-      console.log(res);
     } catch (err) {
       console.log(err);
     }
@@ -118,15 +116,7 @@ export default function AdoptionStudent({ currentUser }) {
     setCurrentPage(page);
   };
 
-  const handleClickUnadopte = useCallback(
-    (userId) => {
-      setAdoption(adoptions.filter((user) => user.id !== userId));
-      setMessage(" étudiant supprimé avec succes");
-      setSuccess(true);
-      console.log(userId);
-    },
-    [adoptions]
-  );
+
 
   function convertDate(date) {
     const month = date.toLocaleString("fr", { month: "short" });

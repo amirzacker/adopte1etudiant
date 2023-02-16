@@ -112,15 +112,6 @@ export default function AdoptionCompany({ currentUser }) {
     setCurrentPage(page);
   };
 
-  const handleClickUnadopte = useCallback(
-    (userId) => {
-      setAdoption(adoptions.filter((user) => user.id !== userId));
-      setMessage(" étudiant supprimé avec succes");
-      setSuccess(true);
-      console.log(userId);
-    },
-    [adoptions]
-  );
 
   function convertDate(date) {
     const month = date.toLocaleString("fr", { month: "short" });

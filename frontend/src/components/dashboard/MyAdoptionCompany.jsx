@@ -120,8 +120,7 @@ export default function MyAdoptionCompany({ currentUser }) {
       const res = await axios.post(`/api/contracts/`, data, {
         headers: { "x-access-token": currentUser.token },
       });
-      //navigate("/login");
-      console.log(res);
+
       if (res.status === 201) {
         handleCloseAcceptModal()
         setMessage(" contrat créé avec succes");

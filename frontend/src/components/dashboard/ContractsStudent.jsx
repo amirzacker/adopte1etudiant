@@ -8,7 +8,7 @@ import { Table, Button, Modal, Form } from "react-bootstrap";
 
 export default function ContractsStudent({ currentUser }) {
   const [contracts, setContract] = useState([]);
-  const [adoption, setAd] = useState([]);
+
 
   const [success, setSuccess] = useState(false);
 
@@ -55,7 +55,6 @@ export default function ContractsStudent({ currentUser }) {
       setMessage(" contrat signé  avec succes");
       setSuccess(true);
 
-      console.log(res);
     } catch (err) {
       console.log(err);
     }
