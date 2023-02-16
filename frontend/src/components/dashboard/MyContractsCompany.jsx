@@ -79,10 +79,12 @@ export default function MyContractsCompany({ currentUser }) {
  
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     const getAdoptions = async () => {
       try {
         const res = await axios.get(`/api/contracts/${currentUser?.user?._id}`, {
           headers: { "x-access-token": currentUser.token },
+          cancelToken: source.token
         });
         //setAdoption(res.data);
         setContract(
@@ -94,6 +96,9 @@ export default function MyContractsCompany({ currentUser }) {
       }
     };
     getAdoptions();
+    return () => {
+      source.cancel("Component unmounted");
+    };
   }, [currentUser, contracts]);
 
 
@@ -198,12 +203,15 @@ export default function MyContractsCompany({ currentUser }) {
                   </tr>
                 ))
               ) : (
-                <div className="d-flex justify-content-center align-items-center">
+                <tr>
+                <td colSpan="7" className="d-flex justify-content-center align-items-center">
                   <div className="spinner-border text-primary" role="status">
-                    <span className="visually-hidden">chargement...</span>
+                    <span className="visually-hidden">Loading...</span>
                   </div>
-                  <span className="visually">Pas de contrat encours...</span>
-                </div>
+                <span className="visually">Pas de contrat encours...</span>
+                </td>
+              </tr>
+              
               )}
             </tbody>
           </table>

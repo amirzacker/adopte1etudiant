@@ -76,10 +76,12 @@ export default function AdoptionCompany({ currentUser }) {
   };
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     const getAdoptions = async () => {
       try {
         const res = await axios.get(`/api/adoptions/${currentUser?.user?._id}`, {
           headers: { "x-access-token": currentUser.token },
+          cancelToken: source.token
         });
         //setAdoption(res.data);
         setAdoption(
@@ -91,6 +93,9 @@ export default function AdoptionCompany({ currentUser }) {
       }
     };
     getAdoptions();
+    return () => {
+      source.cancel("Component unmounted");
+    };
   }, [currentUser, adoptions]);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -187,12 +192,14 @@ export default function AdoptionCompany({ currentUser }) {
                   </tr>
                 ))
               ) : (
-                <div className="d-flex justify-content-center align-items-center">
+                <tr>
+                <td colSpan="7" className="d-flex justify-content-center align-items-center">
                   <div className="spinner-border text-primary" role="status">
                     <span className="visually-hidden">Loading...</span>
                   </div>
                   <span className="visually">Pas d'adoption encours...</span>
-                </div>
+                </td>
+              </tr>              
               )}
             </tbody>
           </table>

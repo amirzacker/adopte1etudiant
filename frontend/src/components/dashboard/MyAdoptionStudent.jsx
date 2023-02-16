@@ -27,9 +27,9 @@ export default function MyAdoptionStudent({ currentUser }) {
       []
     );
   
-    const [filteredAdoptions, setFilteredUsers] = useState([]);
+    const [filteredAdoptions, setFilteredAdoptions] = useState([]);
     useEffect(() => {
-      setFilteredUsers(
+      setFilteredAdoptions(
         adoptions.filter((adoption) =>
         adoption?.status?.toLowerCase().includes(searchStatus.toLowerCase())
         )
@@ -50,10 +50,12 @@ export default function MyAdoptionStudent({ currentUser }) {
 
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     const getAdoptions = async () => {
       try {
         const res = await axios.get(`/api/adoptions/${currentUser?.user?._id}`, {
           headers: { "x-access-token": currentUser.token },
+          cancelToken: source.token
         });
         //setAdoption(res.data);
         setAdoption(
@@ -61,10 +63,17 @@ export default function MyAdoptionStudent({ currentUser }) {
         );
         //console.log(res);
       } catch (err) {
-        console.log(err);
+        if (axios.isCancel(err)) {
+          console.log("Request canceled");
+        } else {
+          console.log(err);
+        }
       }
     };
     getAdoptions();
+    return () => {
+      source.cancel("Component unmounted");
+    };
   }, [currentUser, adoptions]);
 
 
@@ -139,12 +148,15 @@ export default function MyAdoptionStudent({ currentUser }) {
                   </tr>
                 ))
               ) : (
-                <div className="d-flex justify-content-center align-items-center">
+                <tr>
+                <td colSpan="7" className="d-flex justify-content-center align-items-center">
                   <div className="spinner-border text-primary" role="status">
-                    <span className="visually-hidden">chargement...</span>
+                    <span className="visually-hidden">Loading...</span>
                   </div>
                   <span className="visually">Pas d'adoption encours...</span>
-                </div>
+                </td>
+              </tr>
+              
               )}
             </tbody>
           </table>

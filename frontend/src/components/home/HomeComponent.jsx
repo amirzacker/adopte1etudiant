@@ -102,33 +102,33 @@ function HomeComponent () {
         </div>
       </div>
 
-      <section class="section-3">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+      <section className="section-3">
+    <div className="container">
+        <div className="row">
+            <div className="col-md-12">
                 <h2>POUR LES ETUDIANTS</h2>
             </div>
-            <div class="col-6 col-sm-6 col-md-3 col-xl-3">
+            <div className="col-6 col-sm-6 col-md-3 col-xl-3">
               <a href="/monter-en-competence">
-                <img src="/assets/img/adoptehome3.jpeg" alt="Monter en compétence" class="mx-auto d-block img-fluid img-hover" width="188" height="225"/>
+                <img src="/assets/img/adoptehome3.jpeg" alt="Monter en compétence" className="mx-auto d-block img-fluid img-hover" width="188" height="225"/>
                 <p>Monter en compétences</p>
               </a>
             </div>
-            <div class="col-6 col-sm-6 col-md-3 col-xl-3">
+            <div className="col-6 col-sm-6 col-md-3 col-xl-3">
               <a href="/business">
-                <img src="/assets/img/adoptehome2.jpeg" alt="Former mes équipes" class="mx-auto d-block img-fluid img-hover" width="188" height="225"/>
+                <img src="/assets/img/adoptehome2.jpeg" alt="Former mes équipes" className="mx-auto d-block img-fluid img-hover" width="188" height="225"/>
                 <p>Travailler en équipe</p>
               </a>
             </div>
-            <div class="col-6 col-sm-6 col-md-3 col-xl-3">
+            <div className="col-6 col-sm-6 col-md-3 col-xl-3">
               <a href="/trouver-un-job">
-                <img src="/assets/img/adoptehome1.jpeg" alt="Trouver un job" class="mx-auto d-block img-fluid img-hover" width="188" height="225"/>
+                <img src="/assets/img/adoptehome1.jpeg" alt="Trouver un job" className="mx-auto d-block img-fluid img-hover" width="188" height="225"/>
                 <p>Trouver<br/>un stage</p>
               </a>
             </div>
-            <div class="col-6 col-sm-6 col-md-3 col-xl-3">
+            <div className="col-6 col-sm-6 col-md-3 col-xl-3">
               <a href="/alternance">
-                <img src="/assets/img/adoptehome4.jpeg" alt="Me former en alternance" class="mx-auto d-block img-fluid img-hover" width="188" height="225"/>
+                <img src="/assets/img/adoptehome4.jpeg" alt="Me former en alternance" className="mx-auto d-block img-fluid img-hover" width="188" height="225"/>
                 <p>Trouver une alternance</p>
               </a>
             </div>

@@ -32,10 +32,12 @@ export default function HistoryCompany({ currentUser }) {
   };
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     const getAdoptions = async () => {
       try {
         const res = await axios.get(`/api/adoptions/${currentUser?.user?._id}`, {
           headers: { "x-access-token": currentUser.token },
+          cancelToken: source.token
         });
         //setAdoption(res.data);
         setAdoption(
@@ -47,6 +49,9 @@ export default function HistoryCompany({ currentUser }) {
       }
     };
     getAdoptions();
+    return () => {
+      source.cancel("Component unmounted");
+    };
   }, [currentUser, adoptions]);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -92,12 +97,16 @@ export default function HistoryCompany({ currentUser }) {
   };
 
   useEffect(() => {
+    const adoptionSource = axios.CancelToken.source();
+    const contractSource = axios.CancelToken.source();
+    const contactSource = axios.CancelToken.source();
     const getAdoption = async () => {
       try {
         const res = await axios.get(
           `/api/adoptions/history/${currentUser?.user?._id}/${selectedAdoption?.adopted?._id}`,
           {
             headers: { "x-access-token": currentUser.token },
+            cancelToken: adoptionSource.token
           }
         );
         setAdoptionForDate(res.data);
@@ -111,6 +120,7 @@ export default function HistoryCompany({ currentUser }) {
           `/api/contracts/history/${currentUser?.user?._id}/${selectedAdoption?.adopted?._id}`,
           {
             headers: { "x-access-token": currentUser.token },
+            cancelToken: contractSource.token
           }
         );
         setContractForDate(res.data);
@@ -124,6 +134,7 @@ export default function HistoryCompany({ currentUser }) {
           `/api/conversations/find/${currentUser?.user?._id}/${selectedAdoption?.adopted?._id}`,
           {
             headers: { "x-access-token": currentUser.token },
+            cancelToken: contactSource.token
           }
         );
         setContactForDate(res.data);
@@ -132,12 +143,15 @@ export default function HistoryCompany({ currentUser }) {
       }
     };
 
-  
-    if (selectedAdoption) {
+
       getAdoption();
       getContract();
       getContact();
-    }
+      return () => {
+        adoptionSource.cancel();
+        contractSource.cancel();
+        contactSource.cancel();
+      };
   }, [
     currentUser,
     selectedAdoption,
@@ -183,12 +197,15 @@ export default function HistoryCompany({ currentUser }) {
                   </tr>
                 ))
               ) : (
-                <div className="d-flex justify-content-center align-items-center">
+                <tr>
+                <td colSpan="7" className="d-flex justify-content-center align-items-center">
                   <div className="spinner-border text-primary" role="status">
-                    <span className="visually-hidden">chargement...</span>
+                    <span className="visually-hidden">Loading...</span>
                   </div>
-                  <span className="visually">Pas d'historique encours...</span>
-                </div>
+                <span className="visually">Pas d'historique encours...</span>
+                </td>
+              </tr>
+              
               )}
             </tbody>
           </table>
