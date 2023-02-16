@@ -156,7 +156,7 @@ export default function MyContractsStudent({ currentUser }) {
                 ))
               ) : (
                 <tr>
-                <td colSpan="7" className="d-flex justify-content-center align-items-center">
+                <td colSpan="7" className="">
                   <div className="spinner-border text-primary" role="status">
                     <span className="visually-hidden">Loading...</span>
                   </div>

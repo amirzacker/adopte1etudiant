@@ -204,7 +204,7 @@ img:nth-child(4) {
 @media screen and (max-width: 399px) {
   .a-btn {
     width: 80%;
-    margin-top: 180px;
+    margin-top: 160px;
   }
   .pic-ctn {
     height: 200px;
@@ -221,7 +221,7 @@ img:nth-child(4) {
   }
 
   #img-header-container {
-    width: 400px;
+    width: 100%;
     height: 450px;
     background-image: url("/public/assets/img/6.jpg");
     background-position: 95%;
