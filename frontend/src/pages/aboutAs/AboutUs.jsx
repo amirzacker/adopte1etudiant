@@ -90,13 +90,7 @@ function AboutUs() {
             <p>
               Alice est diplômée d'une école de commerce et possède une solide
               expérience en gestion de projets et en marketing. En tant que
-              co-fondatrice et directrice générale d'Adopte un Étudiant, elle
-              est responsable de la stratégie globale de l'entreprise, du
-              développement de partenariats et de la coordination des
-              différentes équipes. Passionnée par l'éducation et le mentorat,
-              Alice est déterminée à créer des opportunités pour les étudiants
-              et à les aider à réussir dans leurs études et leur vie
-              professionnelle.
+              co-fondatrice et directrice générale d'Adopte un Étudiant...
             </p>
           </div>
           <div class="team_member">
@@ -107,12 +101,7 @@ function AboutUs() {
               Maxime est diplômé d'une école d'ingénieurs et a travaillé en tant
               que développeur web pour plusieurs entreprises avant de co-fonder
               Adopte un Étudiant. En tant que directeur technique, Maxime est en
-              charge de la conception, du développement et de la maintenance de
-              la plateforme Adopte un Étudiant, veillant à ce qu'elle soit à la
-              fois conviviale et performante. Maxime est passionné par les
-              technologies de l'information et croit fermement que l'innovation
-              peut aider à résoudre les défis auxquels sont confrontés les
-              étudiants aujourd'hui.
+              charge de la conception...
             </p>
           </div>
           <div class="team_member">
@@ -123,13 +112,7 @@ function AboutUs() {
               Sarah est titulaire d'un master en communication et possède une
               expérience en relations publiques, en rédaction et en stratégie de
               contenu. En tant que responsable communication et relations
-              publiques chez Adopte un Étudiant, Sarah travaille à la promotion
-              de l'image de marque de l'entreprise, au développement de la
-              notoriété et à la création de contenus engageants pour les
-              étudiants, les parrains et les marraines. Sarah est passionnée par
-              la création de liens entre les personnes et croit au pouvoir du
-              storytelling pour inspirer et motiver les étudiants à réaliser
-              leurs rêves.
+              publiques chez Adopte un Étudiant...
             </p>
           </div>
         </div>
