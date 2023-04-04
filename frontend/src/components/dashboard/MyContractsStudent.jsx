@@ -132,6 +132,7 @@ export default function MyContractsStudent({ currentUser }) {
                 <th>Durée restante</th>
                 <th>Status</th>
                 <th>Actions</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -150,6 +151,14 @@ export default function MyContractsStudent({ currentUser }) {
                         onClick={() => handleShowModal(contract)}
                       >
                         Consulter
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => handleShowModal(contract)}
+                      >
+                        Télécharger
                       </button>
                     </td>
                   </tr>
