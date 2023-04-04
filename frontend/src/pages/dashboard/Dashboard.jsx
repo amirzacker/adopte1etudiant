@@ -74,6 +74,11 @@ export default function Dashboard() {
 							<i className="fas fa-users"></i>
 						</Link>
 					</li>
+					<li className="bell-icon">
+						<Link to="#">
+							<i className="fas fa-bell"></i>
+						</Link>
+					</li>
 		
                 <li>
 					<Link onClick={Logout} to="#"><img src="/assets/svg/iconnavdashboard/deconnexion.svg" alt="deconnexion" id="logout-icon"/></Link>

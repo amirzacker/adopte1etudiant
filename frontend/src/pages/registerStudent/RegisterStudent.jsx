@@ -5,6 +5,7 @@ import axios from "axios";
 import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
+import { Link } from "react-router-dom";
 
 
 export default function RegisterStudent() {
@@ -277,7 +278,7 @@ export default function RegisterStudent() {
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">J'ai lu et j'accepte les conditions</label>
+                    <label className="form-label">J'ai lu et j'accepte  <Link to="/cgu">les conditions</Link></label>
                     <input type="checkbox" className={`form-check-input ${errors.acceptTerms ? 'is-invalid' : ''} `} {...register('acceptTerms')} style={{padding: "10px", margin: "0px 0px 10px 10px" }} name="acceptTerms" />
                     <div className="invalid-feedback">{errors.acceptTerms?.message}</div>
                 </div>

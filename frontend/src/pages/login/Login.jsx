@@ -44,6 +44,7 @@ export default function Login() {
                 ""
               )}
                 <br/>
+              <Link to="/forgot-password">Mot de passe oublié?</Link><br/>
               <Link to="/registerStudent">Vous etes un nouveau étudiant?</Link><br/>
               <Link to="/registerCompany">une entreprise?</Link>
             </form>

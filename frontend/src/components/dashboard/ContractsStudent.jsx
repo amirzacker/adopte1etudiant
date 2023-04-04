@@ -185,7 +185,7 @@ export default function ContractsStudent({ currentUser }) {
                 Êtes-vous sûr de vouloir signer ce contract de : {" "}
                 {selectedAdoptionForAccept?.student?.searchType?.name} ? Dans ce cas vous
                 vous engagiez à ...{" "}
-                <Link style={{ color: "red", fontWeight: "bold" }} to="#">
+                <Link style={{ color: "red", fontWeight: "bold" }} to="/cgu">
                   condition d'utilisation
                 </Link>
               </p>

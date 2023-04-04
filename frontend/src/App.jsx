@@ -14,6 +14,10 @@ import Messenger from './pages/messenger/Messenger';
 import { AuthContext } from "./context/AuthContext";
 import Contact from './pages/contact/Contact'
 import AboutUs from './pages/aboutAs/AboutUs'
+import Politique from './pages/politiqueDeConfid/Politique'
+import Mentions from './pages/mentionsLegales/Mentions'
+import Cgu from './pages/cgu/Cgu'
+import ForgotPassword from './pages/forgotPassword/ForgotPassword'
 
 function App () {
   //const { context } = useContext(Context)
@@ -26,6 +30,10 @@ function App () {
           <Route path="/students" element={<Students/>}/>
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/about-us" element={<AboutUs/>}/>
+          <Route path="/politique" element={<Politique/>}/>
+          <Route path="/mentions" element={<Mentions/>}/>
+          <Route path="/forgot-password" element={<ForgotPassword/>}/>
+          <Route path="/cgu" element={<Cgu/>}/>
           <Route path="/student/:id" element={<Student/>}/>
  
           {user ? <Route path="/registerStudent" element={<Navigate to="/dashboard" />}/>  : 

@@ -6,7 +6,6 @@ import { Pagination } from '@material-ui/lab';
 
 
 function Students() {
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [users, setUsers] = useState([]);
   const [domain, setDomain] = useState([]);
 

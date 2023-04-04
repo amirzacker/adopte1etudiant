@@ -228,7 +228,7 @@ export default function MyContractsCompany({ currentUser }) {
                 Êtes-vous sûr de vouloir annuler ce contract de{" "}
                 {selectedContractForCancel?.student?.lastname} ? Dans ce cas
                 vous vous engagiez à ...{" "}
-                <Link style={{ color: "red", fontWeight: "bold" }} to="#">
+                <Link style={{ color: "red", fontWeight: "bold" }} to="/cgu">
                   condition d'utilisation
                 </Link>
               </p>

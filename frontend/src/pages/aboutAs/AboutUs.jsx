@@ -1,98 +1,139 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./about-us.css";
 function AboutUs() {
   return (
     <div>
       <div class="wrapper">
-  <h1>why choose us ?</h1>
-  <div class="team">
-      <div>
-
-      <p>Lorem ipsum dolor sit amet consectetur amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam b adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+        <h1>Notre vision</h1>
+        <div class="team">
+          <div>
+            <p>
+              Notre vision est de créer un réseau solide et bienveillant
+              d'étudiants, de parrains et de marraines, qui s'entraident et
+              s'épanouissent ensemble. Nous croyons fermement que la réussite
+              professionnelle repose sur le partage d'expériences et la mise en
+              commun de compétences. C'est pourquoi nous œuvrons chaque jour
+              pour connecter les étudiants aux professionnels, afin de les aider
+              à réaliser leurs rêves et à construire leur avenir. Nous vous
+              invitons à rejoindre notre communauté et à participer à cette
+              aventure humaine unique. Ensemble, construisons un monde où chaque
+              étudiant a l'opportunité de réussir et de s'épanouir.
+            </p>
+          </div>
+        </div>
       </div>
 
-  </div>
-</div>
+      <div class="containerabout">
+        <div class="about">
+          <div class="left">
+            <h1>A Propos de Nous</h1>
+            <hr />
+            <p>
+              Adopte un Étudiant est un projet innovant créé par une équipe
+              d'étudiants passionnés et engagés, ayant pour objectif de
+              faciliter les rencontres entre étudiants et parrains/marraines
+              issus du monde professionnel. Notre mission est de créer des liens
+              durables et de qualité, permettant aux étudiants de bénéficier de
+              conseils, d'un soutien et d'un réseau pour les aider à réussir
+              leurs études et à se lancer dans la vie active.
+            </p>
+            <p>
+              Adopte un Étudiant est composé d'une équipe pluridisciplinaire et
+              passionnée, travaillant ensemble pour offrir un service de qualité
+              et une expérience utilisateur optimale. Chacun de nous apporte ses
+              compétences spécifiques, que ce soit en développement web, en
+              marketing, en communication ou en gestion de projet. Notre
+              diversité est notre force et nous permet de créer une plateforme
+              adaptée aux besoins de tous les étudiants.
+            </p>
+          </div>
+          <div class="right">
+            <img src="/assets/img/home1.png" alt="" />
+          </div>
+          <div class="clear"></div>
+        </div>
 
+        <div class="mission">
+          <div class="left">
+            <img src="/assets/img/home5.png" alt="" />
+          </div>
+          <div class="right">
+            <h1>Notre Histoire</h1>
+            <hr />
+            <p>
+              L'idée d'Adopte un Étudiant est née de notre expérience
+              personnelle en tant qu'étudiants, face aux défis rencontrés pour
+              construire notre avenir professionnel. Nous avons rapidement
+              réalisé que de nombreux étudiants, comme nous, auraient grandement
+              bénéficié d'un accompagnement personnalisé pour les guider dans
+              leurs choix académiques et professionnels.
+            </p>
 
-
-
-
-<div class="containerabout">
-   
-   <div class="about">
-      <div class="left">
-         <h1>About us</h1>
-         <hr/>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
+            <p>
+              C'est ainsi que nous avons décidé de créer Adopte un Étudiant, un
+              projet qui met en relation des étudiants avec des parrains et
+              marraines expérimentés et bienveillants, prêts à partager leurs
+              connaissances, leurs compétences et leur réseau professionnel.
+            </p>
+          </div>
+          <div class="clear"></div>
+        </div>
       </div>
-      <div class="right">
-         <img src="/assets/img/6.jpg" alt=""/>
+
+      <div class="wrapper">
+        <h1>Notre équite</h1>
+        <div class="team">
+          <div class="team_member">
+            <div class="team_img"></div>
+            <h3>Alice</h3>
+            <p class="role">Co-fondatrice et Directrice Générale</p>
+            <p>
+              Alice est diplômée d'une école de commerce et possède une solide
+              expérience en gestion de projets et en marketing. En tant que
+              co-fondatrice et directrice générale d'Adopte un Étudiant, elle
+              est responsable de la stratégie globale de l'entreprise, du
+              développement de partenariats et de la coordination des
+              différentes équipes. Passionnée par l'éducation et le mentorat,
+              Alice est déterminée à créer des opportunités pour les étudiants
+              et à les aider à réussir dans leurs études et leur vie
+              professionnelle.
+            </p>
+          </div>
+          <div class="team_member">
+            <div class="team_img"></div>
+            <h3>Amir</h3>
+            <p class="role">Co-fondateur et Directeur Technique</p>
+            <p>
+              Maxime est diplômé d'une école d'ingénieurs et a travaillé en tant
+              que développeur web pour plusieurs entreprises avant de co-fonder
+              Adopte un Étudiant. En tant que directeur technique, Maxime est en
+              charge de la conception, du développement et de la maintenance de
+              la plateforme Adopte un Étudiant, veillant à ce qu'elle soit à la
+              fois conviviale et performante. Maxime est passionné par les
+              technologies de l'information et croit fermement que l'innovation
+              peut aider à résoudre les défis auxquels sont confrontés les
+              étudiants aujourd'hui.
+            </p>
+          </div>
+          <div class="team_member">
+            <div class="team_img"></div>
+            <h3>Sarah</h3>
+            <p class="role">Responsable Communication et Relations Publiques</p>
+            <p>
+              Sarah est titulaire d'un master en communication et possède une
+              expérience en relations publiques, en rédaction et en stratégie de
+              contenu. En tant que responsable communication et relations
+              publiques chez Adopte un Étudiant, Sarah travaille à la promotion
+              de l'image de marque de l'entreprise, au développement de la
+              notoriété et à la création de contenus engageants pour les
+              étudiants, les parrains et les marraines. Sarah est passionnée par
+              la création de liens entre les personnes et croit au pouvoir du
+              storytelling pour inspirer et motiver les étudiants à réaliser
+              leurs rêves.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="clear"></div>
-   </div>
-   
-   
-   
-   <div class="mission">
-     
-      <div class="left">
-         <img src="/assets/img/6.jpg" alt=""/>
-      </div>
-        <div class="right">
-         <h1>Mission Statement</h1>
-         <hr/>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-      </div>
-      <div class="clear"></div>
-      
-   </div>
-   
-   
-  
-   
-</div>
-
-
-
-
-
-   <div class="wrapper">
-   <h1>Our Team</h1>
-  <div class="team">
-    <div class="team_member">
-      <div class="team_img">
-        <img src="/assets/img/6.jpg" alt="Team_image"/>
-      </div>
-      <h3>Paul Doe</h3>
-      <p class="role">UI developer</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
-    </div>
-    <div class="team_member">
-      <div class="team_img">
-        <img src="/assets/img/6.jpg" alt="Team_image"/>
-      </div>
-      <h3>Rosie Meg</h3>
-      <p class="role">Tester</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p></div>
-    <div class="team_member">
-      <div class="team_img">
-        <img src="/assets/img/6.jpg" alt="Team_image"/>
-      </div>
-      <h3>Alex Wood</h3>
-      <p class="role">Support Lead</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
-    </div>
-  </div>
-</div>
-  
     </div>
   );
 }

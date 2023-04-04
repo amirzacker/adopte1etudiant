@@ -205,8 +205,8 @@ export default function AdoptionCompany({ currentUser }) {
                 Êtes-vous sûr de vouloir annuler l'adoption de{" "}
                 {selectedAdoptionForCancel?.adopted?.lastname} ? Dans ce cas
                 vous vous engagiez à ...{" "}
-                <Link style={{ color: "red", fontWeight: "bold" }} to="#">
-                  condition d'utilisation
+                <Link style={{ color: "red", fontWeight: "bold" }} to="/cgu">
+                  condition d'utilisation 
                 </Link>
               </p>
             </Modal.Body>
